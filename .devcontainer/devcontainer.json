@@ -1,0 +1,7 @@
+{
+  "name": "Auto-Resale Store",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "n8n",
+  "workspaceFolder": "/workspaces/auto-resale-store",
+  "postCreateCommand": "docker compose up -d"
+}
