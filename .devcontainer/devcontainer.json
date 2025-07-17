@@ -1,7 +1,10 @@
 {
   "name": "Auto-Resale Store",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "n8n",
-  "workspaceFolder": "/workspaces/auto-resale-store",
-  "postCreateCommand": "docker compose up -d"
+  // keep using the default image; no Docker in Docker needed
+  "postStartCommand": "PORT=5680 N8N_BASIC_AUTH_ACTIVE=false npx n8n &",
+  "customizations": {
+    "vscode": {
+      "settings": { "terminal.integrated.defaultProfile.linux": "bash" }
+    }
+  }
 }
