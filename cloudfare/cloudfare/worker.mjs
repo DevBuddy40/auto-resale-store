@@ -4,8 +4,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 export default {
   async fetch(request, env) {
     /* 1️⃣  Read your Supabase keys FROM env right here  */
-    const SUPABASE_URL = env.SUPABASE_URL;                 // set in Worker → Settings → Variables
-    const SERVICE_KEY  = env.SUPABASE_SERVICE_ROLE_KEY;    // set as a Secret
+    const SUPABASE_URL = env.SUPABASE_URL; // set in Worker → Settings → Variables
+    const SERVICE_KEY = env.SUPABASE_SERVICE_ROLE_KEY; // set as a Secret
 
     /* 2️⃣  Create a Supabase client you can reuse in this request */
     const supabase = createClient(SUPABASE_URL, SERVICE_KEY);
@@ -16,8 +16,13 @@ export default {
     if (pathname === "/temu-sync") {
       // demo upsert (replace later with real scraper)
       await supabase.from("products").upsert([
-        { name: "Hoodie", price: 49, vendor: "temu", image_url: "/placeholder" },
-        { name: "Cap",    price: 19, vendor: "temu", image_url: "/placeholder" }
+        {
+          name: "Hoodie",
+          price: 49,
+          vendor: "temu",
+          image_url: "/placeholder",
+        },
+        { name: "Cap", price: 19, vendor: "temu", image_url: "/placeholder" },
       ]);
       return new Response("Temu sync OK");
     }
