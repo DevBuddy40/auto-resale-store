@@ -7,7 +7,8 @@
     "build": "next build",
     "lint": "next lint",
     "n8n": "PORT=5680 npx n8n@latest",
-    "worker:deploy": "wrangler publish"
+    "worker:deploy": "wrangler publish",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.43.1",
@@ -23,6 +24,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "n8n": "^1.101.2",
+    "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
